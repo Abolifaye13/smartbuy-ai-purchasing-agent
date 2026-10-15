@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SmartBuy AI | Procurement Agent</title><link rel="stylesheet" href="/static/styles.css"></head>
+<body>
+<header><div class="logo">SB</div><div><b>SmartBuy AI</b><small>Procurement Decision Agent</small></div><span class="tag">TAKE-HOME PROTOTYPE</span></header>
+<main>
+<section class="hero"><p class="kicker">INVESTIGATE · DECIDE · ACT · VALIDATE</p><h1>Purchasing decisions,<br><em>backed by evidence.</em></h1><p class="intro">Review a proposed replenishment order against inventory, demand, open POs, supplier terms, budget, and storage before taking action.</p></section>
+<section class="panel">
+<div class="panel-head"><div><p class="kicker">SCENARIO 1</p><h2>Purchase recommendation review</h2></div><span class="tag">SKU-APPLE-1</span></div>
+<div class="scenario-grid" id="facts"></div>
+<div class="form-row"><label>System recommendation (units)<input id="proposed" type="number" min="0" value="800"></label><button id="investigate" class="primary">Investigate recommendation <span>→</span></button></div>
+<p class="muted">All values are mock data. The agent will calculate need, check constraints, and explain its decision.</p>
+</section>
+<div id="alert" class="alert hidden"></div>
+<section id="decision" class="panel hidden"></section>
+<section id="executePanel" class="panel approval hidden">
+<p class="kicker">HUMAN APPROVAL GATE</p><h2>Review proposed action</h2><p id="executeSummary"></p><div class="warning"><b>Before you continue:</b> this creates a simulated purchase order only. It does not contact a supplier or transfer money.</div><button id="execute" class="primary">Approve & execute mock PO →</button>
+</section>
+<section id="result" class="panel hidden"></section>
+<section class="panel">
+<div class="panel-head"><div><p class="kicker">RESILIENCE CHECK</p><h2>Simulate a constraint change</h2></div></div>
+<p class="muted">Change the environment after investigation to verify that the agent re-checks conditions before executing.</p>
+<div class="form-row"><label>Available budget (₹)<input id="budgetChange" type="number" value="40000" min="0"></label><label>Free storage (units)<input id="storageChange" type="number" value="500" min="0"></label><button id="mutate" class="secondary">Apply changes</button><button id="reset" class="secondary">Reset scenario</button></div>
+</section>
+<section class="panel"><div class="panel-head"><div><p class="kicker">TRACEABILITY</p><h2>Recent purchase orders</h2></div><button id="refresh" class="secondary small">Refresh</button></div><div id="orders" class="muted">Loading…</div></section>
+<section class="panel"><div class="panel-head"><div><p class="kicker">AUDIT TRAIL</p><h2>Agent events</h2></div><button id="auditRefresh" class="secondary small">Refresh</button></div><div id="audit" class="muted">Loading…</div></section>
+<footer>SmartBuy AI · Simulated procurement environment · No real purchasing actions</footer>
+</main><script src="/static/app.js"></script></body></html>
